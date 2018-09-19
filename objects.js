@@ -1,11 +1,14 @@
-var playlist = {
-  "Raul Seixas" : "Cowboy Fora da Lei",
-  "U2": "Zooropa"
-};
-
-function updatePlaylist(obj, artist, song){
-  obj[artist] = song;
+function createPlaylist(artistName, songTitle) {
+  var obj = {[artistName]: songTitle};
   return obj;
+}
+
+var playlist = createPlaylist("Childish Gambino", "Redbone");
+
+function updatePlaylist(playlist, artist, song) {
+  return Object.assign(playlist, {
+    [artist]: song
+  });
 }
 
 function removeFromPlaylist(obj, artist){
